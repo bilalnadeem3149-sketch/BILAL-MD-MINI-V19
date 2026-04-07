@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAIR CODE</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@300;400;600&display=swap');
+
+:root{
+  --neon1:#ff2b2b;
+  --neon2:#b30000;
+  --neon3:#ff4d6d;
+  --bg1:#0a0505;
+  --bg2:#130707;
+  --glass:rgba(255,255,255,.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at top, rgba(255,43,43,.12), transparent 55%),
+    linear-gradient(135deg,var(--bg1),var(--bg2));
+  font-family:Rajdhani,sans-serif;
+  color:#fff;
+  overflow:hidden;
+}
+
+/* grid */
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,43,43,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,43,43,.06) 1px,transparent 1px);
+  background-size:40px 40px;
+  animation:gridmove 20s linear infinite;
+  z-index:-2;
+}
+
+@keyframes gridmove{
+  from{transform:translateY(0)}
+  to{transform:translateY(40px)}
+}
+
+/* scanlines */
+body::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(255,255,255,.04) 1px,
+    transparent 1px
+  );
+  background-size:100% 3px;
+  pointer-events:none;
+  opacity:.15;
+}
+
+/* particles */
+.particles{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+}
+.particle{
+  position:absolute;
+  width:4px;height:4px;
+  border-radius:50%;
+  background:var(--neon1);
+  animation:float 15s linear infinite;
+  opacity:.5;
+}
+@keyframes float{
+  from{transform:translateY(120vh)}
+  to{transform:translateY(-20vh)}
+}
+
+/* card */
+.box{
+  width:100%;
+  max-width:390px;
+  padding:36px 28px;
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,43,43,.35);
+  box-shadow:
+    0 0 35px rgba(255,43,43,.35),
+    inset 0 0 30px rgba(179,0,0,.35);
+  position:relative;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.box::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(120deg,transparent,var(--neon1),transparent);
+  opacity:.25;
+  animation:borderGlow 6s linear infinite;
+}
+@keyframes borderGlow{
+  from{transform:translateX(-100%)}
+  to{transform:translateX(100%)}
+}
+
+.box:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 0 55px rgba(255,43,43,.75),
+    inset 0 0 40px rgba(179,0,0,.55);
+}
+
+/* logo */
+.logo-text{
+  font-family:Orbitron,sans-serif;
+  font-size:30px;
+  letter-spacing:3px;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--neon1),var(--neon3));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 25px rgba(255,43,43,.9);
+  margin-bottom:12px;
+}
+
+/* text */
+h3{
+  color:var(--neon1);
+  text-shadow:0 0 10px var(--neon1);
+  letter-spacing:1px;
+}
+h6{
+  opacity:.8;
+  margin-bottom:22px;
+}
+
+/* input */
+.input-container{
+  display:flex;
+  gap:6px;
+  margin-bottom:18px;
+}
+.input-container input{
+  flex:1;
+  padding:15px;
+  border-radius:10px 0 0 10px;
+  border:1px solid rgba(255,43,43,.4);
+  background:rgba(0,0,0,.45);
+  color:#fff;
+  font-size:16px;
+}
+.input-container input:focus{
+  outline:none;
+  box-shadow:0 0 18px rgba(255,43,43,.7);
+}
+.input-container button{
+  padding:15px 18px;
+  border-radius:0 10px 10px 0;
+  border:none;
+  cursor:pointer;
+  font-family:Orbitron;
+  background:linear-gradient(135deg,var(--neon2),var(--neon3));
+  color:#fff;
+  letter-spacing:1px;
+  box-shadow:0 0 20px rgba(255,43,43,.8);
+  transition:.3s;
+}
+.input-container button:hover{
+  box-shadow:0 0 35px rgba(255,43,43,1);
+}
+
+/* waiting */
+#waiting-message{
+  color:var(--neon1);
+  font-family:Orbitron;
+  text-shadow:0 0 12px var(--neon1);
+}
+
+/* code */
+.code-display{
+  margin-top:12px;
+  padding:14px 22px;
+  border-radius:10px;
+  background:rgba(0,0,0,.5);
+  border:1px solid rgba(255,43,43,.5);
+  font-family:Orbitron;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  box-shadow:0 0 25px rgba(255,43,43,.6);
+}
+.code-display:hover{
+  transform:scale(1.05);
+}
+.code-value{
+  color:var(--neon1);
+  text-shadow:0 0 12px var(--neon1);
+}
+
+/* pulse */
+.pulse{
+  animation:pulse 1.8s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 rgba(255,43,43,.8)}
+  70%{box-shadow:0 0 30px rgba(255,43,43,0)}
+  100%{box-shadow:0 0 0 rgba(255,43,43,0)}
+}
+</style>
+</head>
+
+<body>
+<div class="particles" id="particles"></div>
+
+<div class="box" id="box">
+  <div class="logo">
+    <div class="logo-text">PAIR CODE</div>
+  </div>
+
+  <h3 class="centered-text">∞ Link with phone number ∞</h3>
+  <h6>❤️ Enter Your Number With Country Code ❤️</h6>
+
+  <div class="input-container">
+    <input placeholder="+254xxxxxxxx" type="tel" id="number" name="number">
+    <button id="submit">ENTER</button>
+  </div>
+
+  <a id="waiting-message" style="display:none">Processing...</a>
+  <main id="pair"></main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+
+<script>
+let a=document.getElementById("pair");
+let b=document.getElementById("submit");
+let c=document.getElementById("number");
+let waitingMessage=document.getElementById("waiting-message");
+
+function createParticles(){
+  const p=document.getElementById("particles");
+  for(let i=0;i<40;i++){
+    let d=document.createElement("div");
+    d.className="particle";
+    d.style.left=Math.random()*100+"%";
+    d.style.animationDuration=10+Math.random()*20+"s";
+    p.appendChild(d);
+  }
+}
+createParticles();
+
+async function Copy(){
+  let t=document.getElementById("copy-value").innerText;
+  await navigator.clipboard.writeText(t);
+}
+
+b.addEventListener("click",async(e)=>{
+  e.preventDefault();
+  if(!c.value){
+    a.innerHTML="Enter number";
+  }else{
+    waitingMessage.style.display="block";
+    a.innerHTML="";
+    try{
+      let{data}=await axios(`/code?number=${c.value.replace(/[^0-9]/g,"")}`);
+      waitingMessage.style.display="none";
+      a.innerHTML=`
+      <div class="code-display pulse" onclick="Copy()">
+        <i class="fas fa-copy"></i>
+        <span id="copy-value">${data.code}</span>
+      </div>`;
+    }catch{
+      waitingMessage.style.display="none";
+      a.innerHTML="Service Unavailable";
+    }
+  }
+});
+</script>
+</body>
+</html>
