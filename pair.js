@@ -1,4 +1,5 @@
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
+
 const ffmpegPath = ffmpegInstaller.path;
 process.env.FFMPEG_PATH = ffmpegPath;
 
