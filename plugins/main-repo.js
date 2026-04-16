@@ -24,7 +24,7 @@ async (conn, mek, m, { from, reply }) => {
 │ 1️⃣ Click the link above
 │ 2️⃣ Enter your WhatsApp number
 │    • Use *international format*
-│    • Example: +2547XXXXXXXX
+│    • Example: +92307XXXXXX
 │
 │ 3️⃣ Click *Request Code*
 │ 4️⃣ Wait for the pairing code
@@ -44,7 +44,7 @@ async (conn, mek, m, { from, reply }) => {
 > ${config.DESCRIPTION}`;
 
         await conn.sendMessage(from, {
-            image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/a93xcb.jpg' },
+            image: { url: config.MENU_IMAGE_URL || 'https://o.uguu.se/lVabnzAl.jpg' },
             caption: message,
             contextInfo: {
                 mentionedJid: [m.sender],
