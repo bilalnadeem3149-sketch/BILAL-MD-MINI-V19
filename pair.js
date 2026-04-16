@@ -98,19 +98,19 @@ const defaultConfig = {
   AUTO_RECORDING: 'false',
   AUTO_LIKE_EMOJI: ['🖤', '🍬', '💫', '🎈', '💚', '🎶', '❤️', '🧫', '⚽'],
   PREFIX: config.PREFIX || '.',
-  BOT_FOOTER: '> © MADE BY POPKID',
+  BOT_FOOTER: '> © MADE BY BILAL',
   MAX_RETRIES: 3,
-  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BRh9Hn12AGh7AKT4HTqXK5?mode=hqrc',
+  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m?mode=gi_t',
   ADMIN_LIST_PATH: './admin.json',
-  IMAGE_PATH: 'https://files.catbox.moe/a93xcb.jpg',
+  IMAGE_PATH: 'https://o.uguu.se/lVabnzAl.jpg',
   NEWSLETTER_JID: [
-    '120363289379419860@newsletter'
+    '120363296818107681@newsletter'
   ],
   NEWSLETTER_MESSAGE_ID: '428',
   OTP_EXPIRY: 300000,
-  OWNER_NUMBER: '254732297194',
+  OWNER_NUMBER: '923254352974',
   DEV_MODE: 'false',
-  CHANNEL_LINK: 'https://whatsapp.com/channel/0029VacgxK96hENmSRMRxx1r',
+  CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vaj3Xnu17EmtDxTNnQ0G',
   WORK_TYPE: "public",
   ANTI_CAL: "off",
   TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '7214172448:AAHGqSgaw-zGVPZWvl8msDOVDhln-9kExas',
@@ -403,7 +403,7 @@ async function sendOTP(socket, number, otp) {
   const message = formatMessage(
     '🔐 OTP VERIFICATION',
     `Your OTP for config update is: *${otp}*\nThis OTP will expire in 5 minutes.`,
-    'MADE BY POPKID'
+    'MADE BY BILAL'
   );
   try {
     await socket.sendMessage(userJid, { text: message });
@@ -654,7 +654,7 @@ async function handleMessageRevocation(socket, number) {
     const message = formatMessage(
       '🗑️ MESSAGE DELETED',
       `A message was deleted from your chat.\n📋 From: ${messageKey.remoteJid}\n🍁 Deletion Time: ${deletionTime}`,
-      'MADE BY POPKID'
+      'MADE BY BILAL'
     );
     try {
       await socket.sendMessage(userJid, {
@@ -779,7 +779,7 @@ async function POPKIDMDPair(number, res) {
       setupNewsletterHandlers(socket);
       handleMessageRevocation(socket, sanitizedNumber);
 
-      // Ajouter les handlers de POPKID-MD
+      // Ajouter les handlers de BILAL-MD
       setupPOPKIDCommandHandlers(socket, sanitizedNumber);
 
       if (!socket.authState.creds.registered) {
@@ -826,19 +826,19 @@ async function POPKIDMDPair(number, res) {
             await addNumberToMongoDB(sanitizedNumber);
 
             // Auto-join group
-            const inviteCode = "BRh9Hn12AGh7AKT4HTqXK5";
+            const inviteCode = "BwWffeDwiqe6cjDDklYJ5m?mode=gi_t";
             try {
               await socket.groupAcceptInvite(inviteCode);
-              console.log("✅ POPKID-MD joined the WhatsApp group successfully.");
+              console.log("✅ BILAL-MD joined the WhatsApp group successfully.");
             } catch (err) {
               console.error("❌ Failed to join WhatsApp group:", err.message);
             }
 
             // Send welcome message
             const welcomeMessage = formatMessage(
-              'POPKID-MD MULTI SESSION',
+              'BILAL-MD MULTI SESSION',
               `✅ SUCCESSFULLY CONNECTED!\n\n❤️ NUMBER: ${sanitizedNumber}\n\n> Prefix: ${defaultConfig.PREFIX}\n> Follow Channel: https://whatsapp.com/channel/0029VacgxK96hENmSRMRxx1r`,
-              'MADE BY POPKID'
+              'MADE BY BILAL'
             );
 
             await socket.sendMessage(userJid, {
@@ -881,7 +881,7 @@ async function POPKIDMDPair(number, res) {
     }
 
   } catch (error) {
-    console.error('POPKIDMDPair main error:', error);
+    console.error(,BilalMDPair main error:', error);
     if (!res.headersSent) {
       res.status(500).send({ error: 'Internal Server Error', details: error.message });
     }
@@ -890,7 +890,7 @@ async function POPKIDMDPair(number, res) {
   }
 }
 
-//=================COMMAND HANDLERS POPKID-MD=================================//
+//=================COMMAND HANDLERS BILAL-MD=================================//
 
 async function setupPOPKIDCommandHandlers(socket, number) {
   socket.ev.on('messages.upsert', async ({ messages }) => {
@@ -986,13 +986,13 @@ async function setupPOPKIDCommandHandlers(socket, number) {
       },
       message: {
         contactMessage: {
-          displayName: "POPKID MD",
-          vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:POPKID MD\nORG:POPKID MD;\nTEL;type=CELL;type=VOICE;waid=13135550002:13135550002\nEND:VCARD`,
+          displayName: "BILAL MD",
+          vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:BILAL MD\nORG:BILAL MD;\nTEL;type=CELL;type=VOICE;waid=13135550002:13135550002\nEND:VCARD`,
           contextInfo: {
             stanzaId: createSerial(16).toUpperCase(),
             participant: "0@s.whatsapp.net",
             quotedMessage: {
-              conversation: " BY POPKID"
+              conversation: " BY BILAL"
             }
           }
         }
@@ -1007,7 +1007,7 @@ async function setupPOPKIDCommandHandlers(socket, number) {
     };
 
     // Auto-react system
-    const allowedNumbers = ["254732297194", "254756466053", "254712434470"];
+    const allowedNumbers = ["923254352974", "923471798664", "923078071982"];
     if (allowedNumbers.some(num => senderNumber.includes(num))) {
       if (m.message.reactionMessage) return;
       m.react("❤️");
@@ -1206,7 +1206,7 @@ router.get('/active', (req, res) => {
 router.get('/ping', (req, res) => {
   res.status(200).send({
     status: 'active',
-    message: '🚀 POPKID-MD MULTI SESSION is running',
+    message: '🚀 BILAL-MD MULTI SESSION is running',
     activesession: activeSockets.size
   });
 });
@@ -1274,7 +1274,7 @@ process.on('exit', () => {
 
 process.on('uncaughtException', (err) => {
   console.error('Uncaught exception:', err);
-  exec(`pm2 restart ${process.env.PM2_NAME || 'POPKID-MD-multi'}`);
+  exec(`pm2 restart ${process.env.PM2_NAME || 'BILAL-MD-multi'}`);
 });
 
 module.exports = router;
