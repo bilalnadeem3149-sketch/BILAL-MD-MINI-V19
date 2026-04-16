@@ -8,16 +8,16 @@ cmd({
     pattern: "pair",
     alias: ["getpair", "clonebot"],
     react: "✅",
-    desc: "Get pairing code for inconnu XD bot",
+    desc: "Get pairing code for BILAL MD bot",
     category: "download",
-    use: ".pair +254XXXXXXXX",
+    use: ".pair +92307XXXXXXX",
     filename: __filename
 }, async (conn, mek, m, { q, senderNumber, reply }) => {
     try {
         const phoneNumber = q ? q.trim() : senderNumber;
 
         if (!phoneNumber || !phoneNumber.match(/^\+?\d{10,15}$/)) {
-            return await reply("❌ Please provide a valid phone number with country code\nExample: .pair +554XXXXXXXX");
+            return await reply("❌ Please provide a valid phone number with country code\nExample: .pair +92307XXXXXX");
         }
 
         // Remove + sign for API
@@ -31,7 +31,7 @@ cmd({
             return await reply("❌ Could not retrieve inconnu xd pairing code.");
         }
 
-        const doneMessage = "> *MINI POPKID PAIRING COMPLETED*";
+        const doneMessage = "> *MINI BILAL PAIRING COMPLETED*";
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${code}`);
 
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -50,16 +50,16 @@ cmd({
     pattern: "pair2",
     alias: ["getpair2", "clonebot2"],
     react: "✅",
-    desc: "Get pairing code for popkid md bot",
+    desc: "Get pairing code for BILAL md bot",
     category: "download",
-    use: ".pair2 +554XXXXXXXX",
+    use: ".pair2 +92307XXXXXX",
     filename: __filename
 }, async (conn, mek, m, { q, senderNumber, reply }) => {
     try {
         const phoneNumber = q ? q.trim() : senderNumber;
 
         if (!phoneNumber || !phoneNumber.match(/^\+?\d{10,15}$/)) {
-            return await reply("❌ Please provide a valid phone number with country code\nExample: .pair2 +554XXXXXXXXX");
+            return await reply("❌ Please provide a valid phone number with country code\nExample: .pair2 +92307XXXXXXX");
         }
 
         // Remove + sign for API
@@ -73,7 +73,7 @@ cmd({
             return await reply("❌ Could not retrieve mini inconnu pairing code.");
         }
 
-        const doneMessage = "> *POPKID PAIRING COMPLETED*";
+        const doneMessage = "> *BILAL PAIRING COMPLETED*";
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${code}`);
 
         await new Promise(resolve => setTimeout(resolve, 2000));
