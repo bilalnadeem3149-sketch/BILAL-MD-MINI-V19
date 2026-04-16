@@ -62,7 +62,7 @@ async (conn, mek, m, { from }) => {
                     body: config.DESCRIPTION || 'Explore all bot commands!',
                     mediaType: 2,
                     mediaUrl: 'https://github.com',
-                    thumbnail: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/a93xcb.jpg' },
+                    thumbnail: { url: config.MENU_IMAGE_URL || 'https://o.uguu.se/lVabnzAl.jpg' },
                     sourceUrl: 'https://github.com'
                 },
                 mentionedJid: [m.sender]
