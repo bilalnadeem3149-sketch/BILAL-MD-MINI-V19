@@ -10,11 +10,11 @@ const verifiedContact = {
     },
     message: {
         contactMessage: {
-            displayName: "POPKID MD BOT ✅",
+            displayName: "BILAL MD BOT ✅",
             vcard: `BEGIN:VCARD
 VERSION:3.0
-FN:POP KIDS VERIFIED ✅
-ORG:POP KIDS BOT;
+FN:BILAL VERIFIED ✅
+ORG:BILAL BOT;
 TEL;type=CELL;type=VOICE;waid=${config.OWNER_NUMBER || '0000000000'}:+${config.OWNER_NUMBER || '0000000000'}
 END:VCARD`
         }
@@ -62,7 +62,7 @@ async (conn, mek, m, { from, sender, reply }) => {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363289379419860@newsletter',
+                    newsletterJid: '120363296818107681@newsletter',
                     newsletterName: "popkid xtr",
                     serverMessageId: 143
                 }
