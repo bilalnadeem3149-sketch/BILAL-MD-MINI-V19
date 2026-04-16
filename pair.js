@@ -869,7 +869,7 @@ async function POPKIDMDPair(number, res) {
         }
       });
 
-      // Ajouter les fonctions utilitaires de POPKID-MD
+      // Ajouter les fonctions utilitaires de BILAL-MD
       addPOPKIDUtilityFunctions(socket);
 
     } catch (error) {
@@ -882,7 +882,7 @@ async function POPKIDMDPair(number, res) {
     }
 
   } catch (error) {
-    console.error(,BilalMDPair main error:', error);
+    console.error('BilalMDPair main error:', error);
     if (!res.headersSent) {
       res.status(500).send({ error: 'Internal Server Error', details: error.message });
     }
