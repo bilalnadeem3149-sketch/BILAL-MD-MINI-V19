@@ -259,7 +259,7 @@ cmd({
 ┃ *Updated On:* ${app.updated}
 ┃ *Developer:* ${app.developer.name}
 ╰━━━━━━━━━━━━━━━┈⊷
-🔗 *Powered By inconnu xd *`;
+🔗 *Powered By BILAL MD*`;
 
     await conn.sendMessage(from, { react: { text: "⬆️", key: m.key } });
 
@@ -310,7 +310,7 @@ cmd({
         document: { url: downloadUrl },
         mimetype: response.data.result.mimetype,
         fileName: response.data.result.fileName,
-        caption: "*© Powered by inconnu xd*"
+        caption: "*© Powered by BILAL MD*"
       }, { quoted: m });
 
       await conn.sendMessage(from, { react: { text: "✅", key: m.key } });
