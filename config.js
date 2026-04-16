@@ -18,25 +18,25 @@ module.exports = {
 
   PREFIX: config.PREFIX || '.',
 
-  BOT_FOOTER: '> © MADE BY POPKID',
+  BOT_FOOTER: '> © MADE BY BILAL',
 
   MAX_RETRIES: 3,
 
-  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BRh9Hn12AGh7AKT4HTqXK5?mode=hqrc',
+  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BwWffeDwiqe6cjDDklYJ5m?mode=gi_t',
 
   ADMIN_LIST_PATH: './admin.json',
-  IMAGE_PATH: 'https://files.catbox.moe/a93xcb.jpg',
+  IMAGE_PATH: 'https://o.uguu.se/lVabnzAl.jpg',
 
-  NEWSLETTER_JID: '120363289379419860@newsletter',
+  NEWSLETTER_JID: '120363296818107681@newsletter',
   NEWSLETTER_MESSAGE_ID: '428',
 
   OTP_EXPIRY: 300000,
 
-  OWNER_NUMBER: '254732297194',
+  OWNER_NUMBER: '923254352974',
 
   DEV_MODE: 'false',
 
-  CHANNEL_LINK: 'https://whatsapp.com/channel/0029VacgxK96hENmSRMRxx1r',
+  CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vaj3Xnu17EmtDxTNnQ0G',
 
   WORK_TYPE: "public",
 
