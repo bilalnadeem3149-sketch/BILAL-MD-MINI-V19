@@ -12,7 +12,7 @@ const quotedContact = {
   },
   message: {
     contactMessage: {
-      displayName: "POP KIDS VERIFIED ✅",
+      displayName: "BILAL VERIFIED ✅",
       vcard: `BEGIN:VCARD
 VERSION:3.0
 FN:POP KIDS VERIFIED ✅
@@ -30,8 +30,8 @@ const newsletterConfig = {
     forwardingScore: 999,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363289379419860@newsletter',
-      newsletterName: '𝐏𝐎𝐏𝐊𝐈𝐃',
+      newsletterJid: '120363296818107681@newsletter',
+      newsletterName: 'BILAL',
       serverMessageId: 143
     }
   }
@@ -86,7 +86,7 @@ async function getOkatsu(url) {
 
 
 // ───────────────────────────────────────────────
-//        VIDEO COMMAND (POP KIDS STYLE)
+//        VIDEO COMMAND (BILAL STYLE)
 // ───────────────────────────────────────────────
 cmd({
   pattern: "video",
@@ -124,7 +124,7 @@ cmd({
       await conn.sendMessage(from, {
         image: { url: v.thumbnail },
         caption: `
-🎥 *POP KID VIDEO DOWNLOADER*
+🎥 *BILAL VIDEO DOWNLOADER*
 💛🤎💜💚💛💞✅
 📝 *Title:* ${v.title}
 ⏱ *Duration:* ${v.timestamp}
@@ -148,7 +148,7 @@ cmd({
       video: { url: video.download },
       mimetype: "video/mp4",
       fileName: `${video.title || videoMeta.title || "video"}.mp4`,
-      caption: `🎬 *${video.title || videoMeta.title}*\n\n> _POP KIDS MEDIA_`,
+      caption: `🎬 *${video.title || videoMeta.title}*\n\n> _BILAL MEDIA_`,
       ...newsletterConfig
     }, { quoted: quotedContact });
 
